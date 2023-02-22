@@ -1,0 +1,51 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+
+void printArry(char* arr, int size)
+{
+    int i;
+    for (i = 0; i < size; i++)
+        printf("%c", arr[i]);
+
+    printf("\n");
+}
+
+char* strConcat(char* originalStr, int *size)
+{
+    char* newStr;
+    int i;
+    int lenOriginal = strlen(originalStr);
+
+    newStr = (char*)malloc(2 * lenOriginal * sizeof(char) + 1);
+
+    for (i = 0; i < lenOriginal; i++)
+    {
+        newStr[i] = originalStr[i];
+        newStr[i + lenOriginal] = originalStr[i];
+    }
+    newStr[i + lenOriginal] = '\0';
+
+    *size = (lenOriginal*2) + 1;
+    return newStr;
+
+}
+
+int main()
+{
+    char arr[] = "Carlos";
+    int size;
+
+    char* a;
+  
+ 
+    a= strConcat(arr, &size);
+
+    printArry(a, size);
+
+    return 0;
+}
