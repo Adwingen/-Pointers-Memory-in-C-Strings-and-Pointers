@@ -1,0 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *strcatFunction(char *strDestination,char *strSource)
+{
+    int i;
+   
+    int lenstrDestination = strlen(strDestination);
+    int lenstrSource = strlen(strSource);
+
+    char* strContact = (char*)malloc((lenstrDestination+lenstrSource) * sizeof(char));
+
+    for (i = 0; i < lenstrDestination; i++)
+        strContact[i] = strDestination[i];
+
+    for (i = 0; i < lenstrSource; i++)
+        strContact[i+lenstrDestination] = strSource[i];
+
+    strContact[lenstrDestination + lenstrSource] = '\0';
+
+    return strContact;
+
+   
+}
+
+int main()
+{
+
+    char strDestination[20] = "Carlos ";
+    char strSource[20] = "Romao";
+
+    char *a = strcatFunction(strDestination, strSource);
+
+
+    printf("string after concatenation: %s\n",a );
+
+   strcat(strDestination, strSource);
+   printf("string after concatenation: %s\n", strDestination);
+        
+
+    return 0;
+}
