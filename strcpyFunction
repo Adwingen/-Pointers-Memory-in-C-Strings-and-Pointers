@@ -1,0 +1,65 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void strcpyFunctionOp2(char* strDest, char* strSource)
+{
+    int i=0;
+    char* tempPtr;
+    tempPtr = strDest;
+
+    while (strSource[i] != '\0')
+    {
+        strDest[i] = strSource[i];
+        i++;
+    }
+
+    strDest[i] = '\0';
+
+}
+
+
+
+char *strcpyFunction(char *strDest,char *strSource)
+{
+    int i;
+    int lenstrSource = strlen(strSource);
+
+    strDest = (char*)malloc((lenstrSource) * sizeof(char));
+
+    for (i = 0; i < lenstrSource; i++)
+        strDest[i] = strSource[i];
+
+    strDest[lenstrSource] = '\0';
+
+    
+    return strDest;
+   
+}
+
+int main()
+{
+
+    char str1[] = "Carlos ";
+    char str2[10];
+    char* temp;
+
+    //option 1
+    temp =  strcpyFunction(str2, str1);
+    printf("str1 = %s\n", str1);
+    printf("str2 = %s\n", temp);
+    //option 2
+    strcpyFunctionOp2(str2, str1);
+    printf("str1 = %s\n", str1);
+    printf("str2 = %s\n", temp);
+    //oficial function
+    strcpy(str2, str1);
+    printf("str1 = %s\n", str1);
+    printf("str2 = %s\n", str2);
+
+
+      
+    return 0;
+}
