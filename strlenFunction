@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <string.h>
+
+int strlenFunction(char *name)
+{
+    int i = 0;
+    while (name[i] != '\0')
+    {
+        i++;
+    }
+   
+    return i;
+}
+
+
+int main()
+{
+
+    char name[5] = "Tech";
+
+    printf("name lenght: %d\n", strlenFunction(name));
+    printf("name lenght: %d\n", strlen(name));
+
+
+    return 0;
+}
